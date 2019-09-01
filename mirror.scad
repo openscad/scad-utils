@@ -8,23 +8,26 @@
 // mirror_z()
 
 
-module mirror_x() {
+module mirror_x( mirrorx=true ) {
 	union() {
-		child();
-		scale([-1,1,1]) child();
+		children();
+		if ( mirrorx )
+			scale([-1,1,1]) children();
 	}
 }
 
-module mirror_y() {
+module mirror_y( mirrory=true ) {
 	union() {
-		child();
-		scale([1,-1,1]) child();
+		children();
+		if ( mirrory )
+			scale([1,-1,1]) children();
 	}
 }
 
-module mirror_z() {
+module mirror_z( mirrorz=true ) {
 	union() {
-		child();
-		scale([1,1,-1]) child();
+		children();
+		if ( mirrorz )
+			scale([1,1,-1]) children();
 	}
 }
